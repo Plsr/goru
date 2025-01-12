@@ -5,6 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
 import { usePathname } from "next/navigation";
+import { FastLink } from "./fast-link";
 
 export const NotesList = ({ notes }: { notes: Note[] }) => {
   const pathname = usePathname();
@@ -16,7 +17,7 @@ export const NotesList = ({ notes }: { notes: Note[] }) => {
   return (
     <>
       {notes.map((note) => (
-        <Link
+        <FastLink
           key={note.id}
           href={`/protected/notes/${note.id}`}
           className={cn(
@@ -30,7 +31,7 @@ export const NotesList = ({ notes }: { notes: Note[] }) => {
           <div className="text-xs text-muted-foreground">
             {format(new Date(note.created_date), "MMM d, yyyy")}
           </div>
-        </Link>
+        </FastLink>
       ))}
     </>
   );
