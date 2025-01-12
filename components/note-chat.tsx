@@ -72,7 +72,7 @@ export function NoteChat({ noteId, noteContent }: NoteChatProps) {
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div className="flex-1 max-h-full overflow-y-auto p-4 space-y-4">
         {taskSuggestions && (
           <div className="bg-muted rounded-lg p-4 space-y-4">
             <h3 className="font-medium">Suggested Tasks</h3>

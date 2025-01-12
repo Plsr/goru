@@ -13,7 +13,6 @@ export const NotesList = ({ notes }: { notes: Note[] }) => {
     pathname.split("/").pop() === "notes" ? null : pathname.split("/").pop();
   const currentNoteIdNumber = currentNoteId ? parseInt(currentNoteId) : null;
 
-  console.log(notes);
   return (
     <>
       {notes.map((note) => (

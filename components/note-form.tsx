@@ -31,7 +31,10 @@ export function NoteForm({ note }: { note: NoteWithTasks }) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="h-full flex flex-col">
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="h-full w-full flex flex-col"
+    >
       <input
         {...register("title")}
         type="text"

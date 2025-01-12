@@ -7,6 +7,7 @@ import { generateObject } from "ai";
 import { openai } from "@ai-sdk/openai";
 import { analyzeDaySchema, taskSuggestionsSchema } from "@/lib/ai";
 import { Task } from "@/utils/supabase/types";
+import { format } from "date-fns";
 
 export async function getNotes() {
   const supabase = await createClient();
@@ -19,12 +20,14 @@ export async function getNotes() {
 }
 
 export async function createNote() {
-  console.log("Creating note");
   const supabase = await createClient();
+
+  const defaultTitle = format(new Date(), "EEEE, MMM dd yyyy");
+
   const { data, error } = await supabase
     .from("notes")
     .insert({
-      title: "New Note",
+      title: defaultTitle,
     })
     .select()
     .single();
